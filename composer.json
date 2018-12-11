@@ -17,7 +17,25 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.6",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0"
+        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
+
+        "johnitvn/yii2-ajaxcrud": "*",
+
+    		"kartik-v/yii2-widgets": "*",
+    		"kartik-v/yii2-mpdf": "dev-master",
+    		"kartik-v/yii2-datecontrol": "*",
+    		"kartik-v/yii2-export": "*",
+    		"kartik-v/yii2-dialog": "*",
+    		"kartik-v/yii2-number": "*",
+    		"kartik-v/yii2-money": "dev-master",
+
+        "ramosisw/yii2-material-dashboard": "dev-master",
+        "dmstr/yii2-adminlte-asset": "~2.6.2",
+
+        "diecoding/yii2-rbac": "dev-master",
+        "diecoding/yii2-toastr": "*",
+
+        "mdmsoft/yii2-admin": "~2.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
