@@ -8,6 +8,8 @@ use common\models\SesiWaktuSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
+use common\models\RefHarga;
 
 /**
  * SesiWaktuController implements the CRUD actions for SesiWaktu model.
@@ -65,6 +67,7 @@ class SesiWaktuController extends Controller
     public function actionCreate()
     {
         $model = new SesiWaktu();
+        $data = ArrayHelper::map(RefHarga::find()->select(['id', 'harga'] )->all(), 'id', 'harga');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,6 +75,7 @@ class SesiWaktuController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'data' => $data,
         ]);
     }
 
@@ -85,6 +89,7 @@ class SesiWaktuController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $data = ArrayHelper::map(RefHarga::find()->select(['id', 'harga'] )->all(), 'id', 'harga');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -92,6 +97,7 @@ class SesiWaktuController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'data' => $data,
         ]);
     }
 

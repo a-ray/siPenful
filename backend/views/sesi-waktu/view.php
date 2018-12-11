@@ -9,7 +9,6 @@ use yii\widgets\DetailView;
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Sesi Waktus', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
 ?>
 <div class="sesi-waktu-view">
 
@@ -29,12 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            // 'id',
             'sesi',
             'mulai',
             'selesai',
             'tampil',
-            'id_harga',
+            'harga.harga',
         ],
     ]) ?>
 

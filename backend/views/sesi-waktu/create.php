@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 
+
 /* @var $this yii\web\View */
 /* @var $model common\models\SesiWaktu */
 
@@ -15,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'data' => $data,
     ]) ?>
 
 </div>

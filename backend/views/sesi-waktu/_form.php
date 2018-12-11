@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\SesiWaktu */
@@ -20,7 +21,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tampil')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id_harga')->textInput() ?>
+
+    <?= $form->field($model, "id_harga")->widget(Select2::classname(), [
+        'data' => $data,
+        'options' => ['placeholder' => 'Harga'],
+        'pluginOptions' => [
+        'allowClear' => true
+        ],
+    ])->label('Harga') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
