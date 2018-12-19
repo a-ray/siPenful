@@ -101,7 +101,7 @@ class BookingController extends Controller
 
     public function actionUploadBukti()
     {
-        $model = new Booking();
+        // $model = new Booking();
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {

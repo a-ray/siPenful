@@ -22,6 +22,7 @@ use yii\behaviors\TimestampBehavior;
  * @property int $created_at
  * @property int $updated_at
  * @property int $status
+ * @property string $ip
  *
  * @property Lapangan $lapangan
  * @property RefStatus $status0
@@ -58,7 +59,7 @@ class Booking extends \yii\db\ActiveRecord
             [['tanggal_main', 'waktu_mulai', 'waktu_selesai'], 'safe'],
             [['nama'], 'string', 'max' => 100],
             [['no_hp'], 'string', 'max' => 16],
-            [['bukti_transfer', 'no_rek_transfer', 'nama_rek_transfer'], 'string', 'max' => 255],
+            [['bukti_transfer', 'no_rek_transfer', 'nama_rek_transfer'], 'string', 'max' => 128],
             [['id_lapangan'], 'exist', 'skipOnError' => true, 'targetClass' => Lapangan::className(), 'targetAttribute' => ['id_lapangan' => 'id']],
             [['status'], 'exist', 'skipOnError' => true, 'targetClass' => RefStatus::className(), 'targetAttribute' => ['status' => 'id']],
             [['id_pemesan'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_pemesan' => 'id']],
@@ -85,6 +86,7 @@ class Booking extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'status' => 'Status',
+            'ip' => 'IP Address',
         ];
     }
 
@@ -110,5 +112,19 @@ class Booking extends \yii\db\ActiveRecord
     public function getPemesan()
     {
         return $this->hasOne(User::className(), ['id' => 'id_pemesan']);
+    }
+
+    public static function findByPemesan($id_pemesan)
+    {
+        return static::findOne(['id_pemesan' => $id_pemesan]);
+    }
+
+    public function setIp()
+    {
+        return $this->ip = Yii::$app->request->userIP;
+    }
+
+    public function statusBayar(){
+      return $this->status = 2;
     }
 }

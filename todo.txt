@@ -1,0 +1,20 @@
+PUBLIC :
+- SITE/TAMPILAN DEPAN
+- monitoring?
+
+User :
+- Melakukan Pemesanan
+- Upload bukti pembayaran
+	membuat nomor transaksi
+- melihat penyewaan	
+
+Admin :
+- melakukan validasi penyewaan setelah user upload bukti pembayaran
+- laporan pemakaian
+
+
+aplikasi jalan dengan baik
+
+Fitur
+ pembayaran
+ 

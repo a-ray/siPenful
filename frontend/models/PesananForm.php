@@ -77,7 +77,7 @@ class PesananForm extends Model
 
             $booking->status = 1;
 
-            return $booking->save() ? $booking : null;
+            return $booking->save(false) ? $booking : null;
         }
     }
 }
