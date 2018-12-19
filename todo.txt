@@ -3,8 +3,8 @@ PUBLIC :
 - monitoring?
 
 User :
-- Melakukan Pemesanan
-- Upload bukti pembayaran
+- Melakukan Pemesanan v
+- Upload bukti pembayaran v 
 	membuat nomor transaksi
 - melihat penyewaan	
 
@@ -12,6 +12,9 @@ Admin :
 - melakukan validasi penyewaan setelah user upload bukti pembayaran
 - laporan pemakaian
 
+menambah exception -> booking tidak ada = eror
+exception -> hanya bookingannya sendiri
+exception -> maksimal 3 jam pembayaran, lebih dari itu ulang lagi
 
 aplikasi jalan dengan baik
 

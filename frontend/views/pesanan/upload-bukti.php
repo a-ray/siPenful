@@ -5,7 +5,6 @@ use yii\bootstrap\ActiveForm;
 use kartik\widgets\FileInput;
 
 $this->title = 'Konfirmasi Pembayaran';
-$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 
