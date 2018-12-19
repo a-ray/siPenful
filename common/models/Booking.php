@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "booking".
@@ -39,10 +40,20 @@ class Booking extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function rules()
     {
         return [
-            [['id_pemesan', 'id_lapangan', 'nama', 'no_hp', 'waktu_mulai', 'waktu_selesai', 'created_at', 'updated_at', 'status'], 'required'],
+            [['id_pemesan', 'id_lapangan', 'nama', 'no_hp', 'waktu_mulai', 'waktu_selesai'], 'required'],
             [['id_pemesan', 'id_lapangan', 'created_at', 'updated_at', 'status'], 'integer'],
             [['tanggal_main', 'waktu_mulai', 'waktu_selesai'], 'safe'],
             [['nama'], 'string', 'max' => 100],

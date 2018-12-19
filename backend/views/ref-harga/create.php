@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\RefHarga */
 
-$this->title = 'Create Ref Harga';
-$this->params['breadcrumbs'][] = ['label' => 'Ref Hargas', 'url' => ['index']];
+$this->title = 'Harga';
+$this->params['breadcrumbs'][] = ['label' => 'Hargas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ref-harga-create">

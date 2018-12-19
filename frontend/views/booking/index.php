@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\LapanganSearch */
+/* @var $searchModel common\models\BookingSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Lapangan';
+$this->title = 'Pesanan';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="lapangan-index">
+<div class="booking-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Tambah Lapangan', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Pesan', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -26,9 +26,21 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             // 'id',
+            // 'id_pemesan',
+            'lapangan.nama',
             'nama',
+            'no_hp',
+            //'tanggal_main',
+            //'waktu_mulai',
+            //'waktu_selesai',
+            //'bukti_transfer',
+            //'no_rek_transfer',
+            //'nama_rek_transfer',
+            //'created_at',
+            //'updated_at',
+            'status',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            // ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

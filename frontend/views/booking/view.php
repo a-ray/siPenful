@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\RefHarga */
+/* @var $model common\models\Booking */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Harga', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Bookings', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="ref-harga-view">
+<div class="booking-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,8 +29,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            // 'id',
-            'harga',
+            'id',
+            'id_pemesan',
+            'id_lapangan',
+            'nama',
+            'no_hp',
+            'tanggal_main',
+            'waktu_mulai',
+            'waktu_selesai',
+            'bukti_transfer',
+            'no_rek_transfer',
+            'nama_rek_transfer',
+            'created_at',
+            'updated_at',
+            'status',
         ],
     ]) ?>
 
