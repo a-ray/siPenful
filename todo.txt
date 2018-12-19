@@ -12,8 +12,9 @@ Admin :
 - melakukan validasi penyewaan setelah user upload bukti pembayaran
 - laporan pemakaian
 
-menambah exception -> booking tidak ada = eror
-exception -> hanya bookingannya sendiri
+menambah exception -> booking tidak ada = eror v
+exception -> hanya bookingannya sendiri v
+exception -> tidak bisa booking pada hari+jam sama
 exception -> maksimal 3 jam pembayaran, lebih dari itu ulang lagi
 
 aplikasi jalan dengan baik

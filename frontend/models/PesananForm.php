@@ -56,9 +56,14 @@ class PesananForm extends Model
 
         $lapangan = Booking::find()->where(['id_lapangan' => $this->id_lapangan])
           ->andWhere(['between', 'waktu_selesai', $waktu_mulai, $waktu_selesai])
-          ->andWhere(['status' => 1])->andWhere(['status' => 10])
+          ->andWhere(['or',
+              ['status' => 1],
+              ['status' => 2],
+              ['status' => 10]
+          ])
           ->count();
 
+        echo "<pre>";print_r($lapangan);exit();
         $hari = date('Y-m-d H:i:s');
 
         if ($waktu_mulai < $hari) {
@@ -70,6 +75,7 @@ class PesananForm extends Model
 
             $booking->id_pemesan = Yii::$app->user->identity->id;
             $booking->id_lapangan = $this->id_lapangan;
+            $booking->tanggal_main = $this->tanggal_main;
             $booking->nama = strtoupper(Yii::$app->user->identity->first_name . ' ' . Yii::$app->user->identity->last_name);
             $booking->no_hp = $this->no_hp;
             $booking->waktu_mulai = $waktu_mulai;
