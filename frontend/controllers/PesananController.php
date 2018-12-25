@@ -47,7 +47,8 @@ class PesananController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             if ($book = $model->pesan()) {
-                Yii::$app->session->setFlash('success', 'Berhasil Memesan Lapangan');
+                Yii::$app->session->setFlash('success', [['Sukses', 'Berhasil Memesan Lapangan']]);
+                // Yii::$app->session->setFlash('success', 'Berhasil Memesan Lapangan');
 
                 return $this->redirect('index');
             }
@@ -73,7 +74,9 @@ class PesananController extends Controller
         $data = Booking::findOne(['id' => $id, 'id_pemesan' => $pemesan]);
 
         if($data == null){
-          Yii::$app->session->setFlash('error', 'Tidak ada pesanan tersebut.');
+          Yii::$app->session->setFlash('error', [['Error', 'Tidak ada pesanan tersebut']]);
+
+          Yii::$app->session->setFlash('', '.');
           return $this->redirect('index');
         }
 
@@ -83,10 +86,12 @@ class PesananController extends Controller
                 // echo "<pre>";print_r($data);exit();
                 $data->statusBayar();
                 $data->save(false);
-                Yii::$app->session->setFlash('success', 'Bukti transfer berhasil terkirim.');
+                Yii::$app->session->setFlash('success', [['Sukses','Bukti transfer berhasil terkirim.']]);
+                // Yii::$app->session->setFlash('success', 'Bukti transfer berhasil terkirim.');
                 return $this->redirect('index');
             } else {
-                Yii::$app->session->setFlash('error', 'Gagal mengirim, mohon teliti kembali.');
+              Yii::$app->session->setFlash('error', [['Error', 'Gagal mengirim, mohon teliti kembali.']]);
+                // Yii::$app->session->setFlash('error', 'Gagal mengirim, mohon teliti kembali.');
             }
         }
 

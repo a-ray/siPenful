@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'name' => 'siPENFUL',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
@@ -16,8 +17,15 @@ return [
             'class' => 'mdm\admin\Module',
             'layout' => 'left-menu',
             'mainLayout' => '@backend/views/layouts/main.php',
-
-        ]
+        ],
+        'gridview' =>  [
+             'class' => '\kartik\grid\Module'
+             // enter optional module parameters below - only if you need to
+             // use your own export download action or custom translation
+             // message source
+             // 'downloadAction' => 'gridview/export/download',
+             // 'i18n' => []
+         ],
     ],
     'components' => [
         'request' => [

@@ -53,8 +53,7 @@ class UploadBuktiForm extends Model{
 
     $this->bukti_transfer->saveAs('img/bukti/' . 'bukti_' . $booking->nama . '_' . $random . '.' . $this->bukti_transfer->extension);
 
-
-    return $booking->save() ? $booking : null;
+    return $booking->save(false) ? $booking : null;
   }
 
   protected function getBooking($id)

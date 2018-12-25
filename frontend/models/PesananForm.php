@@ -28,7 +28,7 @@ class PesananForm extends Model
           [['id_lapangan'], 'integer'],
           [['tanggal_main'], 'safe'],
           // [['nama'], 'string', 'max' => 100],
-          [['no_hp'], 'string', 'max' => 16],
+          [['no_hp'], 'string', 'min'=> 10, 'max' => 16],
           [['id_lapangan'], 'exist', 'skipOnError' => true, 'targetClass' => Lapangan::className(), 'targetAttribute' => ['id_lapangan' => 'id']],
         ];
         // return [

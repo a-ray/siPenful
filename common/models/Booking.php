@@ -58,7 +58,7 @@ class Booking extends \yii\db\ActiveRecord
             [['id_pemesan', 'id_lapangan', 'created_at', 'updated_at', 'status'], 'integer'],
             [['tanggal_main', 'waktu_mulai', 'waktu_selesai'], 'safe'],
             [['nama'], 'string', 'max' => 100],
-            [['no_hp'], 'string', 'max' => 16],
+            [['no_hp'], 'string', 'min' => 10, 'max' => 16],
             [['bukti_transfer', 'no_rek_transfer', 'nama_rek_transfer'], 'string', 'max' => 128],
             [['id_lapangan'], 'exist', 'skipOnError' => true, 'targetClass' => Lapangan::className(), 'targetAttribute' => ['id_lapangan' => 'id']],
             [['status'], 'exist', 'skipOnError' => true, 'targetClass' => RefStatus::className(), 'targetAttribute' => ['status' => 'id']],

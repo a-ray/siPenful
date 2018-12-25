@@ -1,6 +1,7 @@
 <?php
 use yii\widgets\Breadcrumbs;
 use dmstr\widgets\Alert;
+use yii\helpers\Html;
 
 ?>
 <div class="content-wrapper">
@@ -39,7 +40,7 @@ use dmstr\widgets\Alert;
     <div class="pull-right hidden-xs">
         <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2018 <a href="http://github.com/a-ray">e-Commerce</a>.</strong> All rights
+    <strong>Copyright &copy; 2018 <a href="http://github.com/a-ray"><?= Html::encode(Yii::$app->name) ?></a>.</strong> All rights
     reserved.
 </footer>
 

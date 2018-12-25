@@ -1,46 +1,62 @@
 <?php
+/**
+ * @link http://www.a-ray.github.io/
+ * @author {{author}} <khori.qq@gmail.com>
+ * @License: MIT
+ */
+
+
 
 use yii\helpers\Html;
-use yii\grid\GridView;
 
+use kartik\grid\GridView;
+
+use yii\bootstrap\Modal;
+use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\BookingSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Bookings';
+$this->title = 'Pemesanan';
 $this->params['breadcrumbs'][] = $this->title;
+
+$js = <<<js
+$('.validate-click').click(function () {
+     $('#validate-modal')
+         .modal('show')
+         .find('#validateModalContent')
+         .load($(this).attr('value'));
+ });
+js;
+
+$this->registerJs($js);
+
 ?>
 <div class="booking-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Booking', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
+    <?php Pjax::begin(); ?>
     <?= GridView::widget([
-        'dataProvider' => $dataProvider,
+        'dataProvider'=> $dataProvider,
         // 'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            // 'id',
-            'id_pemesan',
-            'lapangan.nama',
-            'nama',
-            'no_hp',
-            'tanggal_main',
-            'waktu_mulai',
-            'waktu_selesai',
-            //'bukti_transfer',
-            //'no_rek_transfer',
-            //'nama_rek_transfer',
-            //'created_at',
-            //'updated_at',
-            'status',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
+        // 'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => 'Belum Ada'],
+        'columns' => require(__DIR__.'/_columns.php'),
+        'responsive'=>true,
+        // 'hover'=>true
     ]); ?>
+    <?php Pjax::end(); ?>
 </div>
+
+
+<?php
+  Modal::begin([
+      'header'=>'<h4>Validasi Pemesanan</h4>',
+      'id'=>'validate-modal',
+      'size'=>'modal-lg'
+  ]);
+
+  echo "<div id='validateModalContent'></div>";
+
+  Modal::end();
+?>
+
+<a class="btn btn-info validate-click" value="<yii\helpers\Url::to(['sites/data-kategori']) ?>">Info Kategori</a>
