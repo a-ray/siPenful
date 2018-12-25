@@ -58,22 +58,9 @@ class BookingController extends Controller
      */
     public function actionView($id)
     {
-        $request = Yii::$app->request;
-        if ($request->isAjax) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            return [
-                    'title'=> "Booking #".$id,
-                    'content'=>$this->renderAjax('view', [
-                        'model' => $this->findModel($id),
-                    ]),
-                    'footer'=> Html::button('Close', ['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
-                            Html::a('Edit', ['update','id'=>$id], ['class'=>'btn btn-primary','role'=>'modal-remote'])
-                ];
-        } else {
-            return $this->render('view', [
-                'model' => $this->findModel($id),
-            ]);
-        }
+      return $this->render('view', [
+          'model' => $this->findModel($id),
+      ]);
     }
 
     /**
@@ -85,39 +72,39 @@ class BookingController extends Controller
      */
     public function actionValidasi($id)
     {
-        $request = Yii::$app->request;
-
+        // $request = Yii::$app->request;
         $model = $this->findModel($id);
+        if($model->status != 2){
+          // echo "<pre>";print_r($model);exit;
+          Yii::$app->session->setFlash('error', [['Error', 'Tidak dapat melakukan validasi']]);
+          return $this->redirect('index');
+        }
 
-        if ($model->load(Yii::$app->request->post())) {
 
-          if($model->status != 2){
-            // echo "<pre>";print_r($model);exit;
-            Yii::$app->session->setFlash('error', [['Error', 'Gagal melakukan validasi']]);
+        // if ($model->load(Yii::$app->request->post('submit'))) {
 
-            return $this->redirect('index');
+          // if (!$model->validate()) {
+          //   Yii::$app->session->setFlash('warning', [['Error', 'Validasi error']]);
+          //   return null;
+          // }
+          // if($model->status == 2){
 
-          }
-          if (!$model->validate()) {
-            echo "<pre>";print_r($model);exit;
-
-            return null;
-
-          }
-          echo "<pre>";print_r($model);exit;
 
             $model->status = 10;
             $model->save(false);
             Yii::$app->session->setFlash('success', [['Sukses', 'Berhasil melakukan validasi']]);
 
             return $this->redirect('index');
-        }
+          // }
 
-        return $this->render('validasi', [
-          'model' => $model,
-        ]);
+
+        // }
+
+        // return $this->render('validasi', [
+        //   'model' => $model,
+        // ]);
     }
-    
+
     /**
      * Finds the Booking model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

@@ -127,4 +127,8 @@ class Booking extends \yii\db\ActiveRecord
     public function statusBayar(){
       return $this->status = 2;
     }
+
+    public function statusValid(){
+      return $this->status = 10;
+    }
 }

@@ -63,7 +63,7 @@ class PesananForm extends Model
           ])
           ->count();
 
-        echo "<pre>";print_r($lapangan);exit();
+        // echo "<pre>";print_r($lapangan);exit();
         $hari = date('Y-m-d H:i:s');
 
         if ($waktu_mulai < $hari) {
