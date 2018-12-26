@@ -35,8 +35,9 @@
                     ['label' => 'Sesi Waktu', 'icon' => 'clock-o', 'url' => ['/sesi-waktu']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                 ],
-            ]
-        ) ?>
+              ]
+            )
+        ?>
 
     </section>
 

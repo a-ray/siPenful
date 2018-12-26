@@ -38,7 +38,7 @@ use kartik\widgets\DatePicker;
 
     <?= $form->field($model, 'tanggal_main')
              ->widget(DatePicker::classname(), [
-            'options' => ['value' => date('Y-m-d')],
+            'options' => ['value' => date('Y-m-d', strtotime('+7 hour'))],
             'removeButton' => false,
             'pluginOptions' => [
                 'autoclose'=>true,

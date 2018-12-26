@@ -28,6 +28,8 @@ class PesananController extends Controller
        $searchModel = new BookingSearch();
        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
        $dataProvider->query->where(['id_pemesan' => Yii::$app->user->identity->id]);
+       $dataProvider->pagination->pageSize=10;
+       
        // echo "<pre>";print_r($dataProvider->getModels());exit();
        // echo "<pre>";print_r($dataProvider->query->where(['id_pemesan' => Yii::$app->user->identity->id]));exit();
 
@@ -111,5 +113,9 @@ class PesananController extends Controller
           'data'   => $data,
           'refHarga' => $refHarga,
      ]);
+    }
+
+    public function actionLapangan(){
+
     }
 }
