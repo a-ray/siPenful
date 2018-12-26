@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\RefStatusSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Ref Statuses';
+$this->title = 'Status';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ref-status-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Ref Status', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Tambah Status', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

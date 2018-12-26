@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\SesiWaktu */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Sesi Waktus', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Sesi Waktu', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="sesi-waktu-view">

@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\RefStatus */
 
-$this->title = 'Create Ref Status';
-$this->params['breadcrumbs'][] = ['label' => 'Ref Statuses', 'url' => ['index']];
+$this->title = 'Tambah Status';
+$this->params['breadcrumbs'][] = ['label' => 'Tambah Status', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ref-status-create">

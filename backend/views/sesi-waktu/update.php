@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model common\models\SesiWaktu */
 
 $this->title = 'Update Sesi Waktu: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Sesi Waktus', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Sesi Waktu', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
