@@ -63,6 +63,7 @@ class BookingController extends Controller
       ]);
     }
 
+
     /**
      * Updates an existing Booking model.
      * For ajax request will return json object
@@ -80,7 +81,6 @@ class BookingController extends Controller
           return $this->redirect('index');
         }
 
-
         // if ($model->load(Yii::$app->request->post('submit'))) {
 
           // if (!$model->validate()) {
@@ -88,7 +88,6 @@ class BookingController extends Controller
           //   return null;
           // }
           // if($model->status == 2){
-
 
             $model->status = 10;
             $model->save(false);
