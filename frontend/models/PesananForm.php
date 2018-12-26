@@ -63,11 +63,11 @@ class PesananForm extends Model
           ])
           ->count();
 
-        // echo "<pre>";print_r($lapangan);exit();
-        $hari = date('Y-m-d H:i:s');
+        $hari = date('Y-m-d H:i:s', strtotime('+7 hour'));
+        // echo "<pre>";print_r($waktu_mulai);echo "</pre><br><pre>";print_r($hari);exit;
 
         if ($waktu_mulai < $hari) {
-            Yii::$app->session->setFlash('error', 'Mohon maaf tanggal tidak sesuai');
+            Yii::$app->session->setFlash('warning', 'Mohon maaf tanggal/jam tidak sesuai');
         } elseif ($lapangan > 0) {
             Yii::$app->session->setFlash('error', 'Lapangan sudah digunakan');
         } else {

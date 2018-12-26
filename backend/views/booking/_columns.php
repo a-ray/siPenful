@@ -25,7 +25,7 @@ return [
         'attribute'=>'tanggal_main',
         'value' => function ($model) {
           if ($model->tanggal_main == 0000-00-00) {
-            return "Belum";
+            return "Belum terisi";
             // code
           }
                 return date('d-m-Y', strtotime($model->tanggal_main));
@@ -62,6 +62,10 @@ return [
                     'style' => 'width: 150px',
                     'title' => 'Validasi Pembayaran',
                     'data-toggle' => 'tooltip',
+                    'data' => [
+                        'confirm' => 'Anda yakin melakukan validasi?',
+                        'method' => 'post',
+                    ],
                 ]);
               }
               return Html::a($model->status0['status_pemesanan'], ['booking/validasi', 'id' => $model->id], [

@@ -80,6 +80,11 @@ class PesananController extends Controller
           return $this->redirect('index');
         }
 
+        if($data->status != 1){
+          Yii::$app->session->setFlash('error', [['Error','Bukti transfer sudah ada']]);
+          return $this->redirect('index');
+        }
+
         if ($model->load(Yii::$app->request->post())) {
             $model->bukti_transfer = UploadedFile::getInstance($model, 'bukti_transfer');
             if ($user = $model->konfirmasi($id)) {
