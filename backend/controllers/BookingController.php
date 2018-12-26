@@ -78,7 +78,7 @@ class BookingController extends Controller
                     'content'=>$this->renderAjax('tampil', [
                         'model' => $this->findModel($id),
                     ]),
-                    'footer'=> Html::button('Batal',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
+                    'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                           Html::a('Validasi',['validasi','id'=>$id],['class'=>'btn btn-primary'])
                 ];
         }else{

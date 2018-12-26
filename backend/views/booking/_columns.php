@@ -79,7 +79,6 @@ return [
             },
         ],
         'viewOptions' => [
-          'role'=>'modal-remote',
           'class' => 'btn btn-sm btn-success',
           'title'=>'View',
           'data-toggle'=>'tooltip'
