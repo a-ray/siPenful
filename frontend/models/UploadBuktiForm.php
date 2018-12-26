@@ -33,7 +33,7 @@ class UploadBuktiForm extends Model{
 
     // echo "<pre>";print_r($user);exit();
 
-    $random  = Yii::$app->security->generateRandomString();
+    $random  = Yii::$app->security->generateRandomString(8);
 
 
     $booking->no_rek_transfer   = $this->no_rek_transfer;

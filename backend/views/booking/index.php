@@ -38,4 +38,4 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-<a class="btn btn-info validate-click" value="<yii\helpers\Url::to(['sites/data-kategori']) ?>">Info Kategori</a>
+<!-- <a class="btn btn-info validate-click" value="<yii\helpers\Url::to(['sites/data-kategori']) ?>">Info Kategori</a> -->

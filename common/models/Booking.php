@@ -119,6 +119,9 @@ class Booking extends \yii\db\ActiveRecord
         return static::findOne(['id_pemesan' => $id_pemesan]);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function setIp()
     {
         return $this->ip = Yii::$app->request->userIP;

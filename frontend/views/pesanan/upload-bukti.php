@@ -17,7 +17,8 @@ $this->title = 'Konfirmasi Pembayaran';
             <div class="alert alert-info alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                 Mohon isi dengan <a class="alert-link">benar</a> dan <a class="alert-link">teliti</a>.
-    		Jika Pembayaran dilakukan melalui Teller isikan field <a class="alert-link">NO. REK. TRANSFER</a> dan <a class="alert-link">NAMA REK. TRANSFER</a> dengan <a class="alert-link">BAYAR DI TELLER</a>
+            		Jika Pembayaran dilakukan melalui Teller isikan field <a class="alert-link">NO. REK. TRANSFER</a> dan <a class="alert-link">NAMA REK. TRANSFER</a> dengan <a class="alert-link">BAYAR DI TELLER</a>
+                <p>TRANSFER KE <a class="alert-link">134-1234-1231-1 (MANDIRI)</a> a.n. <a class="alert-link">SiPenful</a></p>
             </div>
 
             <?php $form = ActiveForm::begin([
@@ -41,7 +42,6 @@ $this->title = 'Konfirmasi Pembayaran';
                     ],
                 ],
             ]); ?>
-            <?= $data->created_at ?>
             <?=
             $form->field($model, 'no_rek_transfer')->textInput() .
             $form->field($model, 'nama_rek_transfer')->textInput() .
