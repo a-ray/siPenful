@@ -56,16 +56,13 @@ return [
         'buttons' => [
             'validasi' => function ($url, $model) {
               if($model->status == 2 ){
-                return Html::a('Validasi Pembayaran', ['booking/validasi', 'id' => $model->id], [
+                return Html::a('Validasi Pembayaran', ['booking/tampil', 'id' => $model->id], [
                     'class' => 'btn btn-sm btn-primary validate-click',
                     // 'role' => 'modal-remote',
                     'style' => 'width: 150px',
                     'title' => 'Validasi Pembayaran',
                     'data-toggle' => 'tooltip',
-                    'data' => [
-                        'confirm' => 'Anda yakin melakukan validasi?',
-                        'method' => 'post',
-                    ],
+                    'role' => 'modal-remote'
                 ]);
               }
               return Html::a($model->status0['status_pemesanan'], ['booking/validasi', 'id' => $model->id], [

@@ -63,7 +63,30 @@ class BookingController extends Controller
       ]);
     }
 
-
+    /**
+     * Displays a single Booking model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionTampil($id)
+    {
+        $request = Yii::$app->request;
+        if($request->isAjax){
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return [
+                    'title'=> "Booking #".$id,
+                    'content'=>$this->renderAjax('tampil', [
+                        'model' => $this->findModel($id),
+                    ]),
+                    'footer'=> Html::button('Batal',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
+                          Html::a('Validasi',['validasi','id'=>$id],['class'=>'btn btn-primary'])
+                ];
+        }else{
+            return $this->render('tampil', [
+                'model' => $this->findModel($id),
+            ]);
+        }
+    }
     /**
      * Updates an existing Booking model.
      * For ajax request will return json object
