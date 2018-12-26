@@ -3,6 +3,8 @@
 namespace frontend\controllers;
 
 use Yii;
+use common\models\RefHarga;
+
 use yii\web\Controller;
 use frontend\models\PesananForm;
 use frontend\models\UploadBuktiForm;
@@ -72,6 +74,10 @@ class PesananController extends Controller
         $model = new UploadBuktiForm();
         // $data = Booking::findOne($id);
         $data = Booking::findOne(['id' => $id, 'id_pemesan' => $pemesan]);
+        $mulai = date('H:i:s', strtotime($data->waktu_mulai));
+        // print_r($mulai);exit;
+        $refSesi = SesiWaktu::findOne(['mulai' => $mulai]);
+        $refHarga = RefHarga::findOne(['id' => $refSesi->id_harga]);
 
         if($data == null){
           Yii::$app->session->setFlash('error', [['Error', 'Tidak ada pesanan tersebut']]);
@@ -103,6 +109,7 @@ class PesananController extends Controller
         return $this->render('upload-bukti', [
           'model'   => $model,
           'data'   => $data,
+          'refHarga' => $refHarga,
      ]);
     }
 }

@@ -12,13 +12,17 @@ $this->title = 'Konfirmasi Pembayaran';
     <div class="col-md-8 col-md-offset-2">
         <div class="square">
             <h4 class="text-center">
-                FORM KONFIRMASI PEMBAYARAN
+                FORM KONFIRMASI PEMBAYARAN <a class="alert-link"><strong>#<?= $data->id ?></strong></a>
             </h4>
             <div class="alert alert-info alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                 Mohon isi dengan <a class="alert-link">benar</a> dan <a class="alert-link">teliti</a>.
             		Jika Pembayaran dilakukan melalui Teller isikan field <a class="alert-link">NO. REK. TRANSFER</a> dan <a class="alert-link">NAMA REK. TRANSFER</a> dengan <a class="alert-link">BAYAR DI TELLER</a>
-                <p>TRANSFER KE <a class="alert-link">134-1234-1231-1 (MANDIRI)</a> a.n. <a class="alert-link">SiPenful</a></p>
+                <p>TRANSFER KE <a class="alert-link">134-1234-1231-1 (MANDIRI)</a> a.n. <a class="alert-link">SiPenful</a>
+            </div>
+            <div class="alert alert-warning alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+              Jumlah transfer <a class="alert-link"> Rp. <?= $refHarga->harga ?></p></a>
             </div>
 
             <?php $form = ActiveForm::begin([
