@@ -29,7 +29,7 @@ class PesananController extends Controller
        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
        $dataProvider->query->where(['id_pemesan' => Yii::$app->user->identity->id]);
        $dataProvider->pagination->pageSize=10;
-       
+
        // echo "<pre>";print_r($dataProvider->getModels());exit();
        // echo "<pre>";print_r($dataProvider->query->where(['id_pemesan' => Yii::$app->user->identity->id]));exit();
 
@@ -115,7 +115,16 @@ class PesananController extends Controller
      ]);
     }
 
-    public function actionLapangan(){
-
-    }
+    // public function actionLapangan(){
+    //
+    //   $model = Booking::find()->select(['*'])->all();
+    //   $lapangan = Lapangan::find()->select(['*'])->all();
+    //   $sesi = SesiWaktu::find()->select(['*'])->all();
+    //
+    //   return $this->render('lapangan', [
+    //     'model' => $model,
+    //     'lapangan' => $lapangan,
+    //     'sesi' => $sesi,
+    //   ]);
+    // }
 }
