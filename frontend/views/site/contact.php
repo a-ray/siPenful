@@ -1,45 +1,19 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\ContactForm */
 
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-use yii\captcha\Captcha;
 
-$this->title = 'Contact';
+$this->title = 'Kontak';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="site-about">
 
-    <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-    </p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-
-                <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'email') ?>
-
-                <?= $form->field($model, 'subject') ?>
-
-                <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
-
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                ]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
+    <div class="alert alert-success col-md-6 pull-center" role="alert">
+        <p>SiPenful <a class="alert-link">Sistem Penyewaan Lapangan Futsal</a>.</p>
+        <p><a class="alert-link">UNS</a> Jl. Ir Sutami No 36, Jebres, 57126</p>
+        <p>Rekening <a class="alert-link">134-1234-1231-1 (MANDIRI)</a> a.n. <a class="alert-link">SiPenful</a>
+        <p>Kontak <a class="alert-link">+62823223232</a> a.n. <a class="alert-link">SiPenful</a>
     </div>
 
 </div>
