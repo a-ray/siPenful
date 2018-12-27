@@ -29,9 +29,12 @@ return [
        ],
     ],
     'components' => [
-          'formatter' => [
-            'class'           => 'yii\i18n\Formatter',
-            'defaultTimeZone' => 'Asia/Jakarta',
+        'helpers' => [
+            'class' => 'common\components\Helpers'
+        ],
+        'formatter' => [
+          'class'           => 'yii\i18n\Formatter',
+          'defaultTimeZone' => 'Asia/Jakarta',
         ],
         'request' => [
             'csrfParam' => '_csrf-frontend',

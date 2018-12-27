@@ -115,16 +115,18 @@ class PesananController extends Controller
      ]);
     }
 
-    // public function actionLapangan(){
-    //
-    //   $model = Booking::find()->select(['*'])->all();
-    //   $lapangan = Lapangan::find()->select(['*'])->all();
-    //   $sesi = SesiWaktu::find()->select(['*'])->all();
-    //
-    //   return $this->render('lapangan', [
-    //     'model' => $model,
-    //     'lapangan' => $lapangan,
-    //     'sesi' => $sesi,
-    //   ]);
-    // }
+    public function actionLapangan($hari){
+
+      $model = Booking::find()->select(['*'])->all();
+      $lapangan = Lapangan::find()->select(['*'])->all();
+      $sesi = SesiWaktu::find()->select(['*'])->all();
+
+
+      return $this->render('lapangan', [
+        'hari' => $hari,
+        'model' => $model,
+        'lapangan' => $lapangan,
+        'sesi' => $sesi,
+      ]);
+    }
 }

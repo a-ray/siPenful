@@ -8,7 +8,7 @@
 use kartik\widgets\DatePicker;
 
 use yii\helpers\Html;
-
+use common\components\Helpers;
 use kartik\grid\GridView;
 use johnitvn\ajaxcrud\CrudAsset;
 
@@ -17,31 +17,69 @@ use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\BookingSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
 $this->title = 'Jadwal';
 $this->params['breadcrumbs'][] = $this->title;
 
 CrudAsset::register($this);
 
 ?>
-<div class="col-xm-4" width="10px">
-<?php
-   echo DatePicker::widget([
-     'name' => 'birth_date',
-     'value' => date('d-m-Y'),
-     'pluginOptions' => [
-         // 'autoclose'=>true,
-         'format' => 'dd-mm-yyyy'
-     ]
-   ]);
-?>
-</div>
-<br>
-<div class="booking-index">
 
+
+
+<div class="lapangan">
+
+  <div class="col-sm-4">
+
+  <!-- <hp
+      echo '<label class="control-label">Tanggal</label>';
+      $hari =  DatePicker::widget([
+         'name' => 'Tanggal[allocation_datetime]',
+         'value' => date('d-m-Y'),
+         'type' => 1,
+         'pluginOptions' => [
+             'format' => 'dd-mm-yyyy',
+             'todayHighlight' => true,
+             'class' => 'form-control',
+         ],
+     ]);
+     echo $hari;
+
+     echo Html::a('Cek', ['pesanan/lapangan', 'hari' => date('d-m', strtotime($hari))], [
+        'class' => 'btn btn-sm btn-primary',
+        // 'role' => 'modal-remote',
+        'style' => 'width: 150px',
+        'data-toggle' => 'tooltip',
+    ]);
+  ?> -->
+  <!-- <
+     $cek = DatePicker::widget([
+       'name' => 'tanggal',
+       'value' => date('d-m-Y'),
+       'pluginOptions' => [
+           // 'autoclose'=>true,
+           'format' => 'dd-mm-yyyy'
+       ],
+    ]);
+     echo $cek;
+     $hari = date('Y-m-d');
+
+     // Yii::$app->helpers->print($hari);exit;
+
+     Html::a('Tambah hari', ['pesanan/lapangan', 'hari' => $hari], [
+        'class' => 'btn btn-sm btn-primary',
+        // 'role' => 'modal-remote',
+        'style' => 'width: 150px',
+        'data-toggle' => 'tooltip',
+    ]);
+  ?>-->
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
     <?php Pjax::begin(); ?>
 
-          <div class="table-responsive">
+          <div class="table-responsive col-sm-12">
               <table border="1" class="table table-sm table-bordered">
                 <thead class="thead-dark">
                   <tr align="center" >
@@ -50,7 +88,7 @@ CrudAsset::register($this);
                       <td>WAKTU</td>
                       <?php
                           foreach($lapangan as $result){
-                            echo "<td>";
+                            echo "<td valign='middle'>";
                             echo $result->nama;
                             echo "</td>";
                           }
@@ -70,14 +108,15 @@ CrudAsset::register($this);
                         //   echo $result->NAMA_HARI;
                         //   echo "</td>";
                           foreach ($sesi as $result) {
-                            echo "<td align='center'>";
+                            echo "<td align='center' valign='middle'>";
                             echo $result->sesi;
                             echo "</td>";
-                            echo "<td align='center'>";
+                            echo "<td align='center' valign='middle'>";
                             echo $result->mulai.' - '.$result->selesai;
                             echo "</td>";
-                            foreach ($lapangan as $result) {
+                            foreach ($lapangan as $result2) {
                               echo "<td align='center'>";
+                              echo Yii::$app->helpers->getLapangan($result2, $hari, $result);
                               // echo Yii::$app->helpers->
                               //   CekKelas($result3->ID_RUANG, $result->ID_HARI, $result2->ID_SESI,
                               //   $pendaftar
