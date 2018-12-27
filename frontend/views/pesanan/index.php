@@ -17,7 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Pesan', ['pesan'], ['class' => 'btn btn-success']) ?>
+      <?= Html::a('Pesan', ['pesan'], ['class' => 'btn btn-success']) ?>
+      <?= Html::a('Lihat Jadwal', ['lapangan', 'hari' => date('Y-m-d')], ['class' => 'btn btn-info']) ?>
     </p>
     <?php Pjax::begin(); ?>
 

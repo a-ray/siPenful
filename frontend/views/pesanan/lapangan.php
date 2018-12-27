@@ -9,11 +9,11 @@ use kartik\widgets\DatePicker;
 
 use yii\helpers\Html;
 use common\components\Helpers;
-use kartik\grid\GridView;
 use johnitvn\ajaxcrud\CrudAsset;
 
 use yii\bootstrap\Modal;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\BookingSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -30,6 +30,14 @@ CrudAsset::register($this);
 
   <div class="col-sm-4">
 
+        <p>
+            <?= Html::a('Pesan', ['pesan'], ['class' => 'btn btn-success']) ?>
+        </p>
+
+        <p>
+            <?= Html::a('Hari ini', ['lapangan','hari' => date('Y-m-d')], ['class' => 'btn btn-warning']) ?>
+            <?= Html::a('Cek Besok', ['lapangan','hari' => date('Y-m-d', strtotime('+1 day'))], ['class' => 'btn btn-info']); ?>
+        </p>
   <!-- <hp
       echo '<label class="control-label">Tanggal</label>';
       $hari =  DatePicker::widget([
@@ -44,7 +52,7 @@ CrudAsset::register($this);
      ]);
      echo $hari;
 
-     echo Html::a('Cek', ['pesanan/lapangan', 'hari' => date('d-m', strtotime($hari))], [
+     echo Html::a('Cek', ['pesanan/lapangan', 'hari' => date('d-m-Y', strtotime($hari))], [
         'class' => 'btn btn-sm btn-primary',
         // 'role' => 'modal-remote',
         'style' => 'width: 150px',
@@ -87,10 +95,10 @@ CrudAsset::register($this);
                       <td>SESI</td>
                       <td>WAKTU</td>
                       <?php
-                          foreach($lapangan as $result){
-                            echo "<td valign='middle'>";
-                            echo $result->nama;
-                            echo "</td>";
+                          foreach ($lapangan as $result) {
+                              echo "<td valign='middle'>";
+                              echo $result->nama;
+                              echo "</td>";
                           }
                         ?>
                     </tr>
@@ -108,22 +116,22 @@ CrudAsset::register($this);
                         //   echo $result->NAMA_HARI;
                         //   echo "</td>";
                           foreach ($sesi as $result) {
-                            echo "<td align='center' valign='middle'>";
-                            echo $result->sesi;
-                            echo "</td>";
-                            echo "<td align='center' valign='middle'>";
-                            echo $result->mulai.' - '.$result->selesai;
-                            echo "</td>";
-                            foreach ($lapangan as $result2) {
-                              echo "<td align='center'>";
-                              echo Yii::$app->helpers->getLapangan($result2, $hari, $result);
-                              // echo Yii::$app->helpers->
-                              //   CekKelas($result3->ID_RUANG, $result->ID_HARI, $result2->ID_SESI,
-                              //   $pendaftar
-                              //   , Yii::$app->getRequest()->getQueryParam('idPengumuman'));
+                              echo "<td align='center' valign='middle'>";
+                              echo $result->sesi;
                               echo "</td>";
-                            }
-                            echo "</tr>";
+                              echo "<td align='center' valign='middle'>";
+                              echo $result->mulai.' - '.$result->selesai;
+                              echo "</td>";
+                              foreach ($lapangan as $result2) {
+                                  echo "<td align='center'>";
+                                  echo Yii::$app->helpers->getLapangan($result2, $hari, $result);
+                                  // echo Yii::$app->helpers->
+                                  //   CekKelas($result3->ID_RUANG, $result->ID_HARI, $result2->ID_SESI,
+                                  //   $pendaftar
+                                  //   , Yii::$app->getRequest()->getQueryParam('idPengumuman'));
+                                  echo "</td>";
+                              }
+                              echo "</tr>";
                           }
                         // }
                       // }
@@ -134,9 +142,9 @@ CrudAsset::register($this);
             </div>
         </div>
     <?php Pjax::end(); ?>
+
 </div>
-
-
+</div>
 <?php Modal::begin([
     "id"=>"ajaxCrudModal",
     "footer"=>"",// always need it for jquery plugin
